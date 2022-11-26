@@ -3,8 +3,8 @@
   hosts: local
   connection: local
   become: true
-  become_user: root
-  become_method: su
+  become_user: "root"
+  become_method: sudo
   tasks:
     - name: Prereq packages are {{ state }}
       ansible.builtin.dnf:

@@ -3,7 +3,7 @@ state: 'present'
 cleanup: true
 use_cache: true
 
-fedora_release: 35
+fedora_release: 36
 sdcard_device: /dev/mmcblk0
 tmp_rpm_dest_path: /tmp/rpi4boot
 tmp_pi_boot_path: "{{ tmp_rpm_dest_path }}/boot/efi"
