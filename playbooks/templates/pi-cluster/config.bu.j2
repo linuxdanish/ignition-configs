@@ -40,6 +40,21 @@ storage:
       mode: 0644
       contents:
         local: etc/microshift/config.yaml
+    - path: /etc/NetworkManager/system-connections/eth0.nmconnection
+      mode: 0600
+      contents:
+        inline: |
+          [connection]
+          id=eth0
+          type=ethernet
+          interface-name=eth0
+          [ipv4]
+          address={{ external_ip }}
+          dhcp-hostname={{ system_hostname }}
+          dns={{ external_dns }}
+          dns-search={{ dns_domain }}
+          may-fail=false
+          method=manual
 systemd:
   units:
     - name: microshift.service

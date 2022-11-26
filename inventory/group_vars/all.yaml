@@ -3,8 +3,9 @@ state: 'present'
 cleanup: true
 use_cache: true
 
-fedora_release: 35
-sdcard_device: /dev/mmcblk0
+
+fedora_release: 36
+sdcard_device: /dev/sdc
 tmp_rpm_dest_path: /tmp/rpi4boot
 tmp_pi_boot_path: "{{ tmp_rpm_dest_path }}/boot/efi"
 tmp_efipart_path: /tmp/fcosefipart
@@ -14,7 +15,7 @@ pi4_boot_pkgs:
   - bcm283x-overlays
 
 ssh_user: "{{ lookup('env', 'USER') }}"
-ssh_pub_key: "{{ lookup('file', '/home/' + ssh_user + '/.ssh/id_rsa.pub') }}"
+ssh_pub_key: "{{ lookup('file', '/home/' + ssh_user + '/.ssh/id_ed25519_sk.pub') }}"
 
 prereq_pkgs:
   - butane
@@ -22,6 +23,9 @@ prereq_pkgs:
   - make
   - rpi-imager
 
-system_hostname: 'pi-master-0'
+system_hostname: 'belfalas-1'
 internal_ip: false 
+external_ip: 192.168.104.3/29,192.168.104.1
+external_dns: 192.168.101.2
+dns_domain: internal.danieltate.us
 ...
